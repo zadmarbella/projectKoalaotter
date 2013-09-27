@@ -1,0 +1,38 @@
+<hr>
+  <div ng-controller="HomeController">
+    <h1>{{title}} <button class='btn' ng-click="logout()">logout</button></h1>
+    <label class="checkbox">
+      <input type="checkbox" ng-model="oneAtATime">
+      Open only one at a time
+    </label>
+
+    <accordion close-others="oneAtATime">
+    <accordion-group heading="Static Header" get-heading-title message="Static Header">
+      This content is straight in the template.
+    </accordion-group>
+    <accordion-group heading="{{group.title}}" ng-repeat="group in groups" get-heading-title>
+      {{group.content}}
+    </accordion-group>
+    <accordion-group heading="Dynamic Body Content" get-heading-title>
+      <p>The body of the accordion group grows to fit the contents</p>
+      <button class="btn btn-small" ng-click="addItem()">Add Item</button>
+      <div ng-repeat="item in items">{{item}}</div>
+    </accordion-group>
+    <accordion-group>
+      <accordion-heading heading="Mark up" get-heading-title message="test">
+      Mark up Headings<i class="icon-check"></i>
+      </accordion-heading>
+      icon-check
+    </accordion-group>
+    </accordion>
+
+    <ul >
+      <li>
+        <img class="th" src="img/demo1.jpg" get-heading-title message="Im the first house.">
+      </li>
+      <li>
+        <img class="th" src="img/demo2.jpg" get-heading-title message="Im the second house.">
+      </li>
+    </ul>
+  </div>
+<hr>
